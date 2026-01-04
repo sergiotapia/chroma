@@ -43,6 +43,10 @@ libvips 8.17.3, averaged over 3 runs per size:
 
 Chroma uses a library called libvips to edit images quickly without using too much memory.
 
+### Automatic Background Detection
+
+Chroma automatically figures out what color to remove by sampling 8 points around the edges of your image: the four corners and the midpoints of each edge. It then groups similar colors together and picks the most common one as the background. This means you don't need to specify the chroma key color for most images - just point Chroma at your file and it handles the rest. If the auto-detection doesn't work for your image, you can always specify the color manually with the `--color` flag.
+
 ## Memory Usage
 
 libvips is smart about memory. It only does work when it really needs to. Here's how much memory it uses:
