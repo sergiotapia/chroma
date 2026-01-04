@@ -4,6 +4,10 @@ A fast, simple CLI utility for removing chroma key backgrounds from images with 
 
 Chroma automatically detects the background color of an image and removes it, producing a transparent output. It uses a blur-and-rethreshold technique to achieve smooth, professional-looking edges without harsh stair-stepping artifacts.
 
+```bash
+./chroma -i ./example-images/ -v
+```
+
 ## Performance
 
 Benchmarks run on Arch Linux (AMD Ryzen 9 9950X, 92GB RAM) with 
