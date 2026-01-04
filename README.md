@@ -20,15 +20,15 @@ libvips 8.17.3, averaged over 3 runs per size:
 
 | Resolution | Megapixels | Total Time | Save Time | Processing Rate |
 |------------|------------|------------|-----------|-----------------|
-| 640x480 | 0.3 MP | ~10ms | ~1ms | ~30 images/sec |
+| 640x480 | 0.3 MP | ~10ms | ~1ms | ~100 images/sec |
 | 1280x720 | 0.9 MP | ~11ms | ~2-3ms | ~90 images/sec |
-| 1920x1080 | 2.1 MP | ~12ms | ~3-4ms | ~85 images/sec |
-| 2560x1440 | 3.7 MP | ~13ms | ~5ms | ~75 images/sec |
-| 3840x2160 (4K) | 8.3 MP | ~16ms | ~7-8ms | ~60 images/sec |
-| 5120x2880 (5K) | 14.7 MP | ~19ms | ~11ms | ~50 images/sec |
+| 1920x1080 | 2.1 MP | ~12ms | ~3-4ms | ~80 images/sec |
+| 2560x1440 | 3.7 MP | ~14ms | ~5ms | ~70 images/sec |
+| 3840x2160 (4K) | 8.3 MP | ~17ms | ~7-8ms | ~60 images/sec |
+| 5120x2880 (5K) | 14.7 MP | ~21ms | ~12ms | ~48 images/sec |
 | 6000x4000 | 24 MP | ~27ms | ~18ms | ~37 images/sec |
-| 8000x6000 | 48 MP | ~39ms | ~30ms | ~26 images/sec |
-| 10000x7500 | 75 MP | ~55ms | ~47ms | ~18 images/sec |
+| 8000x6000 | 48 MP | ~41ms | ~32ms | ~24 images/sec |
+| 10000x7500 | 75 MP | ~62ms | ~52ms | ~16 images/sec |
 
 ## Examples
 
