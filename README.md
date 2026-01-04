@@ -46,3 +46,19 @@ libvips uses demand-driven processing with lazy evaluation. Memory usage depends
 - **Peak**: Roughly 3-4x the decoded image size (e.g., a 24MP RGB image = ~72MB decoded, ~200-300MB peak)
 
 Note: The background detection step requires random pixel access at 8 edge points, which may cause full image decoding. The subsequent operations (mask, blur, despill) benefit from libvips' lazy evaluation - they execute as a single fused pipeline during save.
+
+## Alternatives Comparison
+
+Visual comparison of Chroma against traditional CLI tools for chroma key removal.
+
+| Original | Chroma | ImageMagick | ffmpeg |
+|----------|--------|-------------|--------|
+| ![](example-images/example-1.webp) | ![](example-images/comparison/chroma/example-1.png) | ![](example-images/comparison/imagemagick/example-1.png) | ![](example-images/comparison/ffmpeg/example-1.png) |
+| ![](example-images/example-2.png) | ![](example-images/comparison/chroma/example-2.png) | ![](example-images/comparison/imagemagick/example-2.png) | ![](example-images/comparison/ffmpeg/example-2.png) |
+| ![](example-images/example-3.jpg) | ![](example-images/comparison/chroma/example-3.png) | ![](example-images/comparison/imagemagick/example-3.png) | ![](example-images/comparison/ffmpeg/example-3.png) |
+| ![](example-images/example-4.jpg) | ![](example-images/comparison/chroma/example-4.png) | ![](example-images/comparison/imagemagick/example-4.png) | ![](example-images/comparison/ffmpeg/example-4.png) |
+
+**Commands used:**
+- **Chroma**: `./chroma -i image.jpg` (auto-detects background color)
+- **ImageMagick**: `magick image.jpg -fuzz 15% -transparent "#RRGGBB" output.png`
+- **ffmpeg**: `ffmpeg -i image.jpg -vf "chromakey=0xRRGGBB:0.15:0.1" output.png`
