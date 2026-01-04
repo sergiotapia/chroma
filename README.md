@@ -4,6 +4,15 @@ A fast, simple CLI utility for removing chroma key backgrounds from images with 
 
 Chroma automatically detects the background color of an image and removes it, producing a transparent output. It uses a blur-and-rethreshold technique to achieve smooth, professional-looking edges without harsh stair-stepping artifacts.
 
+## Examples
+
+| Before | After |
+|--------|-------|
+| ![](example-images/example-1.webp) | ![](example-images/example-1_nobg.webp) |
+| ![](example-images/example-2.png) | ![](example-images/example-2_nobg.webp) |
+| ![](example-images/example-3.jpg) | ![](example-images/example-3_nobg.webp) |
+| ![](example-images/example-4.jpg) | ![](example-images/example-4_nobg.webp) |
+
 ## How It Works
 
 Chroma uses libvips for fast, memory-efficient image processing. The pipeline consists of several stages:
