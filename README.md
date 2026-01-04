@@ -6,7 +6,8 @@ Chroma automatically detects the background color of an image and removes it, pr
 
 ## Performance
 
-Benchmarks run on Linux (AMD Ryzen / Intel equivalent) with libvips 8.17, averaged over 3 runs per size:
+Benchmarks run on Arch Linux (AMD Ryzen 9 9950X, 92GB RAM) with 
+libvips 8.17.3, averaged over 3 runs per size:
 
 | Resolution | Megapixels | Total Time | Save Time | Processing Rate |
 |------------|------------|------------|-----------|-----------------|
