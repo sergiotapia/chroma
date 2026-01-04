@@ -1,8 +1,8 @@
 # Chroma
 
-A fast, simple CLI utility for removing chroma key backgrounds from images with clean, anti-aliased edges.
+A fast, simple tool that removes colored backgrounds from images and gives you clean, smooth edges.
 
-Chroma automatically detects the background color of an image and removes it, producing a transparent output. It uses a blur-and-rethreshold technique to achieve smooth, professional-looking edges without harsh stair-stepping artifacts.
+Chroma finds the background color on its own and makes it see-through. It uses a blur trick to make the edges look smooth instead of jagged.
 
 ```bash
 ./chroma -i ./example-images/ -v
@@ -36,20 +36,20 @@ libvips 8.17.3, averaged over 3 runs per size:
 
 ## How It Works
 
-Chroma uses libvips for fast, memory-efficient image processing.
+Chroma uses a library called libvips to edit images quickly without using too much memory.
 
 ## Memory Usage
 
-libvips uses demand-driven processing with lazy evaluation. Memory usage depends on the operations performed:
-- **Base overhead**: ~20-50MB for libvips initialization
-- **Per-image**: The full decoded image is typically held in memory during processing
-- **Peak**: Roughly 3-4x the decoded image size (e.g., a 24MP RGB image = ~72MB decoded, ~200-300MB peak)
+libvips is smart about memory. It only does work when it really needs to. Here's how much memory it uses:
+- **Starting up**: ~20-50MB just to get libvips ready
+- **Each image**: The whole image needs to fit in memory while being worked on
+- **Most memory used**: About 3-4 times the image size (for example, a 24MP photo is ~72MB, but may use ~200-300MB at peak)
 
-Note: The background detection step requires random pixel access at 8 edge points, which may cause full image decoding. The subsequent operations (mask, blur, despill) benefit from libvips' lazy evaluation - they execute as a single fused pipeline during save.
+Note: To find the background color, Chroma looks at 8 spots around the edges. This makes it load the whole image into memory. After that, the other steps (making the mask, blurring, fixing colors) are done together at the end when saving. This saves time and memory.
 
 ## Alternatives Comparison
 
-Visual comparison of Chroma against traditional CLI tools for chroma key removal.
+See how Chroma compares to other tools that remove backgrounds.
 
 | Original | Chroma | ImageMagick | ffmpeg |
 |----------|--------|-------------|--------|
