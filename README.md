@@ -8,6 +8,11 @@ Chroma finds the background color on its own and makes it see-through. It uses a
 ./chroma -i ./example-images/ -v
 ```
 
+## Requirements
+
+- **libvips** - You need libvips installed on your system to run Chroma
+- **Nim >= 2.0.0** - You need Nim 2.0.0 or newer to compile the code
+
 ## Performance
 
 Benchmarks run on Arch Linux (AMD Ryzen 9 9950X, 92GB RAM) with 
